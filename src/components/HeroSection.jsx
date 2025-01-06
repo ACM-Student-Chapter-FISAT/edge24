@@ -1,19 +1,20 @@
 import React from 'react'
 import '../styles/global.css'
-import Logo from '../assets/logo.svg'
+import Logo from '../assets/logo.png'
 import Overlay from '../assets/bgvideo.mp4'
 
 const HeroSection = () => {
   return (
     <div className="hero">
-        <video autoPlay loop muted playsInline className="background-video">
+        {/* <video autoPlay loop muted playsInline className="background-video">
         <source src={Overlay} type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> */}
       <div className="hero-content">
         
         <h1 className="hero-heading">ACM STUDENT CHAPTER FISAT
         PRESENTS</h1>
+        
         <div className='hero-logo-container'>
         <img src={Logo} alt="Logo" className="hero-logo" />
 

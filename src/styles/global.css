@@ -1,13 +1,16 @@
 /* General Styles */
 
 
-body, ul, li, a {
+body, ul, li, a,button {
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
     font-family: "Inter", serif;
 
+}
+h1,h2,h3,h4,h5,h6,p{
+    font-family: "Inter", serif;
 }
 
 
@@ -27,7 +30,7 @@ body, ul, li, a {
     --primary-color: #e91687; /* Color for headings, subheadings and title throughout the website */
     --secondary-color: #31124e; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
     --accent-color: #fed104; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-    --navbar-height: 60px;
+    --navbar-height: 80px;
 }
 
   
@@ -35,110 +38,172 @@ body, ul, li, a {
 
 /* Navbar Styles */
 .navbar {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  padding: 0 8rem !important;
+  background: hsl(332, 100%, 50%); /* Transparent background */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  z-index: 1000; /* Ensure navbar is above other elements */
+  padding: 0 20px;
+  border-bottom: 1px solid #969696b7;
+  transform: translateY(0); /* Default position */
+  transition: transform 0.3s ease-in-out; /* Smooth hide/show */
+}
+.navbar.hidden {
+  transform: translateY(-100%); /* Move navbar out of view */
+  position: sticky;
+}
+
+.navbar.visible {
+  transform: translateY(0);
+  position: sticky;  /* Move navbar into view */
+}
+/* Logo Section */
+.logo{
+  position: relative;
+}
+.logo img {
+  height: 40px;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.nav-links button {
+  
+  height: 100%;
+  padding: 0 1.5rem;
+  transition: border 0.2s ease-in-out;
+  border-bottom:2px solid  #ff018800;
+  position: relative;
+
+  
+}
+
+.nav-links a {
+  color: hsl(0, 0%, 100%);
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+
+.nav-links button:hover{
+  border-bottom:2px solid  var(--accent-color);
+}
+/* Button */
+.nav-button .btn {
+  background:none;
+  border: 2px solid var(--default-color);
+  font-family: 'Inter', sans-serif;
+  color: var(--default-color);
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: var(--text-size-md);
+  font-weight: 600;
+  text-decoration: none;
+  
+  transition:all 0.4s ease-in-out;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button .btn:hover {
+  background-color: var(--default-color);
+  color:hsl(332, 100%, 50%)
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
     justify-content: space-between;
-    color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: var(--navbar-height);
-    background: rgba(17, 17, 17, 0.5); /* Transparent background */
-    backdrop-filter: blur(10px); /* Optional: Add blur for a frosted glass effect */
-    z-index: 1000; /* Ensure navbar is above other elements */
-  }
-  
-  /* Logo Section */
-  .logo img {
-    height: 50px;
-  }
-  
-  /* Nav Links */
-  .nav-links {
-    display: flex;
-    gap: 40px;
-    transition: transform 0.3s ease;
-    
-  }
-  
-  .nav-links li {
-    list-style: none;
-  }
-  
-  .nav-links a {
-    color: hsl(0, 0%, 100%);
-    font-size: var(--text-size-md);
-    transition: color 0.3s ease;
-    text-decoration: none;
-  }
-  
-  .nav-links a:hover {
-    color: hsl(0, 0%, 60%);
-  }
-  
-  /* Button */
-  .nav-button .btn {
-    background-color: #3b82f6;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: var(--text-size-md);
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-button .btn:hover {
-    background-color: #2563eb;
-  }
-  
-  /* Hamburger Button */
-  .hamburger {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .navbar{
-        padding: 15px 20px;
-    }
-    .nav-links {
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      gap: 5px;
-      left: 0;
-      right: 0;
-      background-color: #333;
-      transform: translateY(-100%);
-      visibility: hidden;
-      opacity: 0;
-    }
-  
-    .nav-links.show {
-      transform: translateY(0);
-      visibility: visible;
-      opacity: 1;
-    }
-  
-    .nav-links li {
-      text-align: center;
-      padding: 10px 0;
-    }
-  
-    .hamburger {
-      display: block;
-    }
-  
-    .nav-button {
-      display: none;
-    }
+    padding: 0 15px !important;
+    background-color: #ff0077;
+
   }
 
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    height: fit-content;
+
+    background-color: #ff0077;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.2s ease-in-out;
+
+    z-index: 999;
+    
+  }
+
+  .nav-links.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-links button {
+    margin: 0 0;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #fffb0065;
+    width: 100%;
+
+  }
+  .nav-links button:last-child{
+    padding-bottom: 15px;
+    border: none;
+  }
+  .nav-links button:hover{
+    border-bottom:0px solid  #fffb00;
+  }
+
+
+  .hamburger {
+    display: block;
+  }
+  .hb {
+    width: 40px;
+    margin: 0 auto;
+    display: block;
+  }
+  .hb path {
+    transition: d 0.2s ease-in-out;
+  }
+  .nav-button {
+    display: none;
+  }
+}
 
 /* Hero Section Styles */
 
@@ -153,7 +218,7 @@ body, ul, li, a {
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
-    
+    background-color: #31124e;
   }
   
   .background-video-container {
@@ -181,6 +246,7 @@ body, ul, li, a {
     max-width: 800px; /* Restricts content width for better layout */
     padding: 20px;
     z-index: 3;
+    font-family: 'Inter', sans-serif;
   }
   .hero-logo-container{
     display: flex; /* Enables flexbox */
@@ -189,7 +255,9 @@ body, ul, li, a {
     height: 700px; /* Adjust as needed */
     width: auto; /* Adjust as needed */
   }
-
+  .hero-logo-container{
+    height: fit-content;
+  }
   .hero-logo {
     max-width: 100%; /* Ensures the image scales appropriately */
     max-height: 100%; /* Ensures the image scales appropriately */
