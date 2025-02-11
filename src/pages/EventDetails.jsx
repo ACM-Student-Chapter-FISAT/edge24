@@ -8,16 +8,111 @@ import { useParams } from "react-router-dom";
 const EventDetails = () => {
     const data = [
         {
-            id: 3,
-            title: "Meme Contest",
-            description: "Join our exciting Meme Contest and showcase your creativity! Win amazing prizes and have fun.",
-            venue: "Online Event",
-            date: "idk",
-            fee: "20",
-            prize_pool: "500",
-            link: 'https://forms.gle/QQQaf4umbnEWjd5Y8'
+          id: 3,
+          title: "Meme Contest",
+          description:
+            "Join our exciting Meme Contest and showcase your creativity! Win amazing prizes and have fun.",
+          venue: "Online Event",
+          date: "idk",
+          fee: "20",
+          prize_pool: "500",
+          link: "https://forms.gle/QQQaf4umbnEWjd5Y8",
         },
-    ];
+        {
+          id: 4,
+          title: "Gen AI",
+          description:
+            "Join our exciting Meme Contest and showcase your creativity! Win amazing prizes and have fun.",
+          venue: "Online Event",
+          date: "idk",
+          fee: "20",
+          prize_pool: "500",
+          link: "https://forms.gle/QQQaf4umbnEWjd5Y8",
+        },
+        {
+          id: 5,
+          title: "Image Prompt",
+          description:
+            "Join our exciting Meme Contest and showcase your creativity! Win amazing prizes and have fun.",
+          venue: "Online Event",
+          date: "idk",
+          fee: "20",
+          prize_pool: "500",
+          link: "https://forms.gle/QQQaf4umbnEWjd5Y8",
+        },
+        {
+          id: 6,
+          title: "Cyber Security (Project-Based)",
+          description: `In an era where cyber threats are evolving rapidly, learning how to secure systems, networks, and data is more important than ever. 
+      This project-based workshop is designed to equip you with practical skills in identifying, preventing, and mitigating cyber threats.
+      
+      **What You’ll Learn:**
+      
+      ✅ Understand Cybersecurity Fundamentals: Get introduced to key cybersecurity concepts, including threats, vulnerabilities, and attack vectors.  
+      ✅ Secure Systems & Networks: Gain insights into network security, firewalls, and best practices for protecting sensitive data.  
+      ✅ Defend Against Cyber Attacks: Learn how to detect, analyze, and respond to real-world cyber threats.  
+      ✅ Work on a Real-World Cybersecurity Project: Apply your knowledge by working on a hands-on cybersecurity project that simulates real attack scenarios and defense mechanisms.
+      
+      By the end of this workshop, you’ll have a strong foundation in cybersecurity, practical experience with security tools, and the confidence to tackle real-world security challenges.`,
+          venue: "Online Event",
+          date: "idk",
+          fee: "20",
+          prize_pool: "500",
+          link: "https://forms.gle/QQQaf4umbnEWjd5Y8",
+        },
+        {
+          id: 7,
+          title: "Film Making",
+          description:
+            "Join our exciting Meme Contest and showcase your creativity! Win amazing prizes and have fun.",
+          venue: "Online Event",
+          date: "idk",
+          fee: "20",
+          prize_pool: "500",
+          link: "https://forms.gle/QQQaf4umbnEWjd5Y8",
+        },
+        {
+          id: 8,
+          title: "Python Project",
+          description: `Python is a versatile and beginner-friendly language used in web development, data analysis, automation, artificial intelligence, and more. 
+      This workshop will provide you with a strong foundation in Python, helping you understand its core concepts and practical applications.
+      
+      **What You’ll Learn:**
+      
+      ✅ Understand Python Fundamentals – Explore essential concepts like variables, data types, operators, loops, and functions.  
+      ✅ Work with Python Libraries – Get introduced to popular libraries that enhance Python’s capabilities.  
+      ✅ Handle Data & Files – Learn how to read, write, and manipulate data efficiently in Python.  
+      ✅ Explore Real-World Applications – Discover how Python is used in automation, web development, and data science.
+      
+      By the end of this workshop, you’ll have a solid understanding of Python and the confidence to start your own coding journey!`,
+          venue: "Online Event",
+          date: "idk",
+          fee: "20",
+          prize_pool: "500",
+          link: "https://forms.gle/QQQaf4umbnEWjd5Y8",
+        },
+        {
+          id: 9,
+          title: "Competitive Coding",
+          description: `**Master Competitive Coding!**  
+      
+      Welcome to an intensive Competitive Coding Workshop designed to enhance your problem-solving skills and prepare you for coding challenges and technical interviews. Competitive programming is a crucial skill for developers aiming to excel in algorithmic thinking and efficient coding.
+      
+      **What You’ll Learn:**
+      
+      ✅ Understanding Algorithms & Data Structures: Master essential concepts like sorting, searching, recursion, dynamic programming, and graph algorithms.  
+      ✅ Optimizing Problem-Solving Approaches: Learn how to approach coding problems efficiently, analyze time complexity, and optimize solutions.  
+      ✅ Implementing Code Efficiently: Write clean, structured, and efficient code to solve real-world problems under time constraints.  
+      ✅ Mastering Competitive Coding Platforms: Get familiar with platforms like Codeforces, LeetCode, and HackerRank to practice and improve your ranking.  
+      ✅ Solving Live Coding Challenges: Work on a series of problems, from beginner to advanced level, with guidance from experts.`,
+          venue: "Online Event",
+          date: "idk",
+          fee: "20",
+          prize_pool: "500",
+          link: "https://forms.gle/QQQaf4umbnEWjd5Y8",
+        },
+      ];
+      
     let { id } = useParams();
     id = Number(id);
     const item = data.find((entry) => entry.id === id);

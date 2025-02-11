@@ -9,6 +9,7 @@ import EventDetails from './pages/EventDetails'
 import Footer from './components/Footer'
 import Hackathon from './pages/Hackathon'
 import Loader from './components/Loader'
+import SideBar from './components/SideBar'
 const App = () => {
   const [loading, setLoading] = useState(true);
 
@@ -22,6 +23,7 @@ const App = () => {
     <div className="flex justify-center items-center h-screen bg-black">
       <Loader /></div>
   ) : (
+    // <SideBar/>
     <Router>
       <Navbar />
       <Routes>
@@ -33,8 +35,7 @@ const App = () => {
       </Routes>
       <ContactUs />
       <Footer />
-    </Router>
-    //<LoadingPage/>
+     </Router>
   )
 }
 
