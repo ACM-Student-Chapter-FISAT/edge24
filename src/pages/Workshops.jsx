@@ -2,244 +2,139 @@ import React, { useEffect, useState } from "react";
 import './workshops.scss';
 import { images } from "../assets/assets";
 import { NavLink } from "react-router-dom";
-import Loader from "../components/Loader";
 
 const CardAnimations = () => {
   const [stacksTransition, setStacksTransition] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
 
+  // Detect screen size changes
   useEffect(() => {
-    window.scrollTo(0, 0);
-    const screenHeight = window.innerHeight;
-    setIsSmallScreen(screenHeight <= 3200);
-
-    const t1 = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    const t2 = setTimeout(() => {
-      setStacksTransition(true);
-    }, 3000);
-
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
+    const handleResize = () => setIsSmallScreen(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return isLoading ? (
-    <div className="flex justify-center items-center h-screen bg-black">
-      <Loader />
-    </div>
-  ) : (
-    isSmallScreen ? (
+  // Trigger animations after page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      setStacksTransition(true);
+    }, 1000);
+  }, []);
+
+  // Array of card data
+  const cardsData = [
+    { id: 1, title: "1", stack: "Stack 1", image: images.edgerev },
+    { id: 2, title: "2", stack: "Stack 1", image: images.edgerev },
+    { id: 3, title: "3", stack: "Stack 1", image: images.proshow },
+    { id: 4, title: "4", stack: "Stack 2", image: images.edgerev },
+    { id: 5, title: "5", stack: "Stack 2", image: images.edgerev },
+    { id: 6, title: "6", stack: "Stack 2", image: images.edgerev },
+    { id: 7, title: "7", stack: "Stack 3", image: images.edgerev },
+    { id: 8, title: "8", stack: "Stack 3", image: images.edgerev },
+    { id: 9, title: "9", stack: "Stack 3", image: images.edgerev },
+  ];
+
+  if (isSmallScreen) {
+    // Small Screen Layout
+    return (
       <>
-        {/* Small Screen JSX */}
+        {/* Hero Section */}
         <div
           className="h-[650px] flex justify-center items-center bg-black bg-cover bg-center relative"
           style={{ backgroundImage: `url(${images.background})` }}
         >
           <div className="absolute inset-0 bg-black/50"></div>
-          <div className="relative z-10 text-white text-center">
-            <h1 className="text">WORKSHOPS</h1>
-          </div>
+          <p id="shadowLarger" className="h-48 mx-auto mb-8">
+        <span id="glow">REGIS</span>
+        <span id="blink">TER</span>
+      </p>
         </div>
 
+        {/* Card Section for Small Screens */}
         <div className="min-h-screen bg-[hsl(0,0%,4%)] font-sans pt-1">
-          <section className="max-w-6xl mx-auto my-10">
-            <ul className="relative h-[700px] cursor-pointer">
-              {/* Card List for Small Screen */}
-              <li
-                className={`absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform ${stacksTransition ? "translate-x-[0px]" : ""}`}
-              >
-                <ul className="relative">
-                  {/* Individual Card Items */}
-                  <li
-                    className={`absolute top-0 left-0 w-[250px] h-[250px] bg-blend-saturation rounded-lg shadow-md transition-transform duration-1000 ease-in-out z-20 transform rotate-[-7deg] ${stacksTransition ? "translate-y-[340px]" : ""}`}
-                  >
-                    <img
-                      src={images.edgerev}
-                      alt="Card 2"
-                      className="w-full h-auto pt-28"
-                    />
-                    <div className="p-2">
-                      <h1 className="text-lg font-semibold">2</h1>
-                      <p className="text-sm">Stack 1</p>
-                    </div>
-                  </li>
-
-                  <NavLink to='/workshops/3'
-                    className={`absolute top-0 left-0 w-[250px] h-[250px] bg-white rounded-lg shadow-md transition-transform duration-1000 ease-in-out z-10 transform rotate-[5deg] ${stacksTransition ? "translate-y-[100px]" : ""}`}
-                  >
-                    <img
-                      src={images.proshow}
-                      alt="Card 3"
-                      className="w-full h-auto"
-                    />
-                    <div className="p-2">
-                      <h1 className="text-lg font-semibold">3</h1>
-                      <p className="text-sm">Stack 1</p>
-                    </div>
-                  </NavLink>
-                </ul>
-              </li>
-
-              {/* Similar structure for other stacks... */}
-            </ul>
-          </section>
-        </div>
-      </>
-    ) : (
-      <>
-        <div id="nav-bar">
-          {/* Toggle Checkbox */}
-          <input id="nav-toggle" type="checkbox" />
-
-          {/* Header Section */}
-          <div id="nav-header">
-            <a
-              id="nav-title"
-              href="https://codepen.io"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              C#<i className="fab fa-codepen"></i>DEPEN
-            </a>
-            <label htmlFor="nav-toggle">
-              <span id="nav-toggle-burger"></span>
-            </label>
-            <hr />
-          </div>
-
-          {/* Content Section */}
-          <div id="nav-content">
-            <div className="nav-button">
-              <i className="fas fa-palette"></i>
-              <span>Your Work</span>
-            </div>
-            <div className="nav-button">
-              <i className="fas fa-images"></i>
-              <span>Assets</span>
-            </div>
-            <div className="nav-button">
-              <i className="fas fa-thumbtack"></i>
-              <span>Pinned Items</span>
-            </div>
-            <hr />
-            <div className="nav-button">
-              <i className="fas fa-heart"></i>
-              <span>Following</span>
-            </div>
-            <div className="nav-button">
-              <i className="fas fa-chart-line"></i>
-              <span>Trending</span>
-            </div>
-            <div className="nav-button">
-              <i className="fas fa-fire"></i>
-              <span>Challenges</span>
-            </div>
-            <div className="nav-button">
-              <i className="fas fa-magic"></i>
-              <span>Spark</span>
-            </div>
-            <hr />
-            <div className="nav-button">
-              <i className="fas fa-gem"></i>
-              <span>Codepen Pro</span>
-            </div>
-            <div id="nav-content-highlight"></div>
-          </div>
-
-          {/* Footer Toggle Checkbox */}
-          <input id="nav-footer-toggle" type="checkbox" />
-
-          {/* Footer Section */}
-          <div id="nav-footer">
-            <div id="nav-footer-heading">
-              <div id="nav-footer-avatar">
-                <img
-                  src="https://gravatar.com/avatar/4474ca42d303761c2901fa819c4f2547"
-                  alt="User Avatar"
-                />
-              </div>
-              <div id="nav-footer-titlebox">
-                <a
-                  id="nav-footer-title"
-                  href="https://codepen.io/uahnbu/pens/public"
-                  target="_blank"
-                  rel="noopener noreferrer"
+          <section className="max-w-6xl mx-auto px-4">
+            <ul className="space-y-8">
+              {cardsData.map((card, index) => (
+                <li
+                  key={card.id}
+                  className={`bg-gray-800 rounded-lg shadow-md overflow-hidden transform transition-transform duration-1000 ease-in-out ${
+                    stacksTransition ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+                  }`}
+                  style={{ transitionDelay: `${index * 200}ms` }}
                 >
-                  uahnbu
-                </a>
-                <span id="nav-footer-subtitle">Admin</span>
-              </div>
-              <label htmlFor="nav-footer-toggle">
-                <i className="fas fa-caret-up"></i>
-              </label>
-            </div>
-            <div id="nav-footer-content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-          </div>
-        </div>
-        {/* Large Screen JSX */}
-        <div
-          className="h-[650px] flex justify-center items-center bg-black bg-cover bg-center relative"
-          style={{ backgroundImage: `url(${images.background})` }}
-        >
-          <div className="absolute inset-0 bg-black/50"></div>
-          <div className="relative z-10 text-white text-center">
-            <h1 className="text">WORKSHOPS</h1>
-          </div>
-        </div>
-
-        <div className="min-h-screen bg-[hsl(0,0%,4%)] font-sans pt-1">
-          <section className="max-w-6xl mx-auto my-10">
-            <ul className="relative h-[700px] cursor-pointer">
-              {/* Card List for Large Screen */}
-              <li
-                className={`absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform ${stacksTransition ? "translate-x-[0px]" : ""}`}
-              >
-                <ul className="relative">
-                  {/* Individual Card Items */}
-                  <li
-                    className={`absolute top-0 left-0 w-[250px] h-[250px] bg-blend-saturation rounded-lg shadow-md transition-transform duration-1000 ease-in-out z-20 transform rotate-[-7deg] ${stacksTransition ? "translate-y-[340px]" : ""}`}
-                  >
-                    <img
-                      src={images.edgerev}
-                      alt="Card 2"
-                      className="w-full h-auto pt-28"
-                    />
-                    <div className="p-2">
-                      <h1 className="text-lg font-semibold">2</h1>
-                      <p className="text-sm">Stack 1</p>
-                    </div>
-                  </li>
-
-                  <NavLink to='/workshops/3'
-                    className={`absolute top-0 left-0 w-[250px] h-[250px] bg-white rounded-lg shadow-md transition-transform duration-1000 ease-in-out z-10 transform rotate-[5deg] ${stacksTransition ? "translate-y-[100px]" : ""}`}
-                  >
-                    <img
-                      src={images.proshow}
-                      alt="Card 3"
-                      className="w-full h-auto"
-                    />
-                    <div className="p-2">
-                      <h1 className="text-lg font-semibold">3</h1>
-                      <p className="text-sm">Stack 1</p>
-                    </div>
-                  </NavLink>
-                </ul>
-              </li>
-
-              {/* Similar structure for other stacks... */}
+                  <img src={card.image} alt={card.title} className="w-full h-48 object-cover" />
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold">{card.title}</h3>
+                    <p className="text-sm text-gray-400">{card.stack}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
           </section>
         </div>
       </>
-    )
+    );
+  }
+
+  // Large Screen Layout
+  return (
+    <>
+      {/* Hero Section */}
+      <div
+        className="h-[650px] flex justify-center items-center bg-black bg-cover bg-center relative"
+        style={{ backgroundImage: `url(${images.background})` }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+        <p id="shadowLarger" className="h-48 mx-auto mb-8 flex ">
+        <span id="glow">WORK</span>
+        <span id="blink">SHOP</span>
+      </p>  
+      </div>
+
+      {/* Card Section for Larger Screens */}
+      <div className="min-h-screen bg-[hsl(0,0%,4%)] font-sans pt-1 ">
+        <section className="max-w-6xl mx-auto my-10">
+          <ul className="relative h-[700px] cursor-pointer">
+            {[0, 320, 640].map((offset, stackIndex) => (
+              <li
+                key={stackIndex}
+                className={`absolute  top-0 left-0 transition-transform duration-1000 ease-in-out transform ${
+                  stacksTransition ? `translate-x-[${offset}px]` : ""
+                }`}
+              >
+                <ul className="relative">
+                  {cardsData
+                    .slice(stackIndex * 3, stackIndex * 3 + 3)
+                    .map((card, index) => (
+                      <li
+                        key={card.id}
+                        className={`absolute top-0 left-0 w-[250px] h-[250px] bg-transparent rounded-lg shadow-md transition-transform duration-1000 ease-in-out z-${30 - index * 10} transform rotate-${
+                          index === 0 ? "-2deg" : index === 1 ? "-7deg" : "5deg"
+                        } ${
+                          stacksTransition
+                            ? `translate-y-[${index === 0 ? "580px" : index === 1 ? "340px" : "100px"}]`
+                            : ""
+                        }`}
+                      >
+                        <img
+                          src={card.image}
+                          alt={card.title}
+                          className="w-full h-auto mt-52 mb-14 m-14 mb-3"
+                        />
+                        <div className="p-2">
+                          <h1 className="text-lg font-semibold bg-slate-600 text-white">{card.title}</h1>
+                          <p className="text-sm">{card.stack}</p>
+                        </div>
+                      </li>
+                    ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+    </>
   );
 };
 
