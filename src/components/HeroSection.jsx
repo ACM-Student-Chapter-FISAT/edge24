@@ -141,7 +141,7 @@ const HeroSection = () => {
             </h2>
             <p className="text-left text-base sm:text-sm md:text-xl max-w-xs sm:max-w-md md:max-w-2xl mx-auto mb-6 font-light text-purple-100 animate-typing overflow-hidden border-r-2 border-purple-500">
               Get ready to ignite your passion for technology at ACM STUDENT CHAPTER FISAT's flagship inter-college event on{' '}
-              <span className="font-bold text-purple-300">21th-22th February, 2025</span>.
+              <span className="font-bold text-purple-300">28th February and 1st March, 2025</span>.
             </p>
             <button
               onClick={() => handleScroll("events-section")}
@@ -155,7 +155,7 @@ const HeroSection = () => {
 
           {/* Div 2: Right Section */}
           <div>
-            <div className="w-full md:w-1/2 pl-0 md:pl-4 flex justify-center md:justify-end">
+            <div className="w-full md:w-2/3 pl-0 md:pl-4 flex justify-center md:justify-end">
               <div
                 ref={imageRef}
                 className="w-full sm:w-120 md:w-[40rem] h-auto transition-transform duration-300"
