@@ -373,16 +373,6 @@ const TeamMember = ({ member }) => {
         className="social-icons"
         style={{ display: "flex", gap: "10px", justifyContent: "center" }}
       >
-        {member.social.instagram && (
-          <a href={member.social.instagram}>
-            <Instagram className="icon" />
-          </a>
-        )}
-        {member.social.linkedin && (
-          <a href={member.social.linkedin}>
-            <Linkedin className="icon" />
-          </a>
-        )}
         {member.phone && (
           <a href={`tel:${member.phone}`}>
             <Phone className="icon" />
