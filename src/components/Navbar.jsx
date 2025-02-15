@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const navigate = useNavigate(); // Import useNavigate hook
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -64,8 +66,8 @@ const Navbar = () => {
           <a>About</a>
         </button>
 
-        <button>
-          <a href="#events">Teams</a>
+        <button onClick={() => navigate("/teams")}>
+          <a>Teams</a>
         </button>
 
         <button onClick={() => handleScroll("contact-edge")}>

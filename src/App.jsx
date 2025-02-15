@@ -4,7 +4,7 @@ import LandingPage from './pages/LandingPage'
 import ContactUs from './pages/Contact'
 import Navbar from './components/Navbar'
 import Workshops from './pages/Workshops'
-import LoadingPage from './pages/LoadingPage'
+import Teams from './pages/teams'
 import EventDetails from './pages/EventDetails'
 import Footer from './components/Footer'
 import Hackathon from './pages/Hackathon'
@@ -31,6 +31,7 @@ const App = () => {
         <Route path="/workshops" element={<Workshops />} />
         <Route path='/workshops/:id' element={<EventDetails />} />
         <Route path='/hackathon' element={<Hackathon />} />
+        <Route path='/teams' element={<Teams/>} />
       </Routes>
       <ContactUs />
       <Footer />
