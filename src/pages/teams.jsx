@@ -1,5 +1,40 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Phone, Mail } from "lucide-react";
+import gautham from './../assets/Execom24/ACM Core/gauth.jpg'
+import sruthy from './../assets/Execom24/Advisory Board/sruthymiss.jpg'
+import ritu from './../assets/ritu.jpeg'
+import aswin from './../assets/Execom24/PR Team/20240302_114951-1.jpg'
+import hica from './../assets/Execom24/ACM Core/Hisham Haskar.jpg'
+import fad from './../assets/Execom24/ACM Core/IMG_2099.jpg'
+import sming from './../assets/Execom24/Advisory Board/IMG-20240312-WA0084.jpg'
+import sri from './../assets/Execom24/Advisory Board/srinads.jpg'
+import isc from './../assets/Execom24/Advisory Board/isacjohn.jpg'
+import nan from './../assets/Execom24/Women Cell/nandanasreekumar.jpg'
+import rahul from './../assets/Execom24/Design Team/Rahul KJ.jpg'
+import charu from './../assets/Execom24/Design Team/sharika.jpeg'
+import tomm from './../assets/Execom24/Women Cell/IMG-20240818-WA0126.jpg'
+import nafi from './../assets/Execom24/Event Team/NAFIH.jpg'
+import anu from './../assets/Execom24/Event Team/Anupama K J.jpg'
+import sid from './../assets/Execom24/Tech Team/Sidharth CJ_.jpg'
+import diya from './../assets/Execom24/Tech Team/Diya KDileep.jpg'
+import gauri from './../assets/Execom24/Event Team/Gowri s.jpg'
+import husky from './../assets/Execom24/Membership Dev Team/Hisham Ahamed T P.jpg'
+import ham from './../assets/Execom24/Media Team/Hamad_.jpg'
+import sam from './../assets/Execom24/Media Team/Samiksha Sreekumar_.jpg'
+import hari from './../assets/Execom24/Content Team/Harinandana K Biju.jpg'
+import dani from './../assets/Execom24/Content Team/Daniel Geo.jpg'
+import abin from './../assets/Execom24/Media Team/ABIN JACOB.jpg'
+import jaico from './../assets/Execom24/Membership Dev Team/Jaico Jinov Kachappilly.jpg'
+import wils from './../assets/Execom24/Membership Dev Team/Wilson Nevin.jpg'
+import sinny from './../assets/Execom24/Event Team/Kevin Sinny.jpg'
+import ron from './../assets/Execom24/PR Team/Ron Binoy Mechery.jpg'
+import sree from './../assets/Execom24/Women Cell/IMG-20240811-WA0113.jpg'
+import dev from './../assets/Execom24/PR Team/Devananda S.jpg'
+import devd from './../assets/Execom24/PR Team/Devananda Devakumar.png'
+import laksmi from './../assets/Execom24/Membership Dev Team/Lekshmi Priya S.jpg'
+import kerr from './../assets/Execom24/Tech Team/Keerthana R Nambiar_.jpg'
+
+
 
 const teamData = [
   {
@@ -8,7 +43,7 @@ const teamData = [
       {
         name: "SRUTHY SURESH",
         role: "Faculty Coordinator",
-        image: "/placeholder.svg",
+        image: sruthy,
         social: { instagram: "#", linkedin: "#" },
         phone: "9846974800",
         email: "",
@@ -21,7 +56,7 @@ const teamData = [
       {
         name: "GAUTHAM PRASANTH",
         role: "Chairperson",
-        image: "/placeholder.svg",
+        image: gautham,
         social: { instagram: "#", linkedin: "#" },
         phone: "9074244983",
         email: "gauthamprasanthkkra@acm.org",
@@ -29,7 +64,7 @@ const teamData = [
       {
         name: "RHITHIKAM PRADEEP",
         role: "Vice Chairperson",
-        image: "/placeholder.svg",
+        image: ritu,
         social: { instagram: "#", linkedin: "#" },
         phone: "9400902331",
         email: "",
@@ -37,7 +72,7 @@ const teamData = [
       {
         name: "HISHAM HASKER",
         role: "Secretary",
-        image: "/placeholder.svg",
+        image: hica,
         social: { instagram: "#", linkedin: "#" },
         phone: "8078313514",
         email: "",
@@ -45,7 +80,7 @@ const teamData = [
       {
         name: "FAADIL MOHAMMED",
         role: "Treasurer",
-        image: "/placeholder.svg",
+        image: fad,
         social: { instagram: "#", linkedin: "#" },
         phone: "9446206833",
         email: "",
@@ -58,7 +93,7 @@ const teamData = [
       {
         name: "SMINGLE SIMON",
         role: "Sponsorship, Hackathon, Hospitality",
-        image: "/placeholder.svg",
+        image: sming,
         social: { instagram: "#", linkedin: "#" },
         phone: "6235863510",
         email: "",
@@ -66,7 +101,7 @@ const teamData = [
       {
         name: "NANDANA SREEKUMAR",
         role: "Marketing, Content, Decoration",
-        image: "/placeholder.svg",
+        image: nan,
         social: { instagram: "#", linkedin: "#" },
         phone: "6238604249",
         email: "",
@@ -74,7 +109,7 @@ const teamData = [
       {
         name: "SRINAND S",
         role: "Cultural, Workshop, Transportation",
-        image: "/placeholder.svg",
+        image: sri,
         social: { instagram: "#", linkedin: "#" },
         phone: "8078555316",
         email: "",
@@ -82,7 +117,7 @@ const teamData = [
       {
         name: "ISAC JOHN",
         role: "Design, Media, Food",
-        image: "/placeholder.svg",
+        image: isc,
         social: { instagram: "#", linkedin: "#" },
         phone: "8606909009",
         email: "",
@@ -95,7 +130,7 @@ const teamData = [
       {
         name: "RAHUL KJ",
         role: "DESIGN Lead",
-        image: "/placeholder.svg",
+        image: rahul,
         social: { instagram: "#", linkedin: "#" },
         phone: "7591914551",
         email: "",
@@ -103,7 +138,7 @@ const teamData = [
       {
         name: "SHARIKA",
         role: "DESIGN Co-Lead",
-        image: "/placeholder.svg",
+        image: charu,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -116,7 +151,7 @@ const teamData = [
       {
         name: "ANNMARIA TOMMICHAN",
         role: "SPONSORSHIP Lead",
-        image: "/placeholder.svg",
+        image: tomm,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -124,7 +159,7 @@ const teamData = [
       {
         name: "FAADIL MOHAMMED",
         role: "SPONSORSHIP Lead",
-        image: "/placeholder.svg",
+        image: fad,
         social: { instagram: "#", linkedin: "#" },
         phone: "9446206833",
         email: "",
@@ -132,7 +167,7 @@ const teamData = [
       {
         name: "ASWIN RADHAKRISHNAN",
         role: "SPONSORSHIP Co-Lead",
-        image: "/placeholder.svg",
+        image: aswin,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -145,7 +180,7 @@ const teamData = [
       {
         name: "MUHAMMED NAFIH",
         role: "WORKSHOP Lead",
-        image: "/placeholder.svg",
+        image: nafi,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -153,7 +188,7 @@ const teamData = [
       {
         name: "ANUPAMA",
         role: "WORKSHOP Lead",
-        image: "/placeholder.svg",
+        image: anu,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -166,7 +201,7 @@ const teamData = [
       {
         name: "DIYA K DILEEP",
         role: "TECH Lead",
-        image: "/placeholder.svg",
+        image: diya,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -174,7 +209,7 @@ const teamData = [
       {
         name: "SIDHARTH",
         role: "TECH Co-Lead",
-        image: "/placeholder.svg",
+        image: sid,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -187,7 +222,7 @@ const teamData = [
       {
         name: "HISHAM AHAMMED",
         role: "HACKATHON Lead",
-        image: "/placeholder.svg",
+        image: husky,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -195,7 +230,7 @@ const teamData = [
       {
         name: "GOWRI S",
         role: "HACKATHON Lead",
-        image: "/placeholder.svg",
+        image: gauri,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -208,7 +243,7 @@ const teamData = [
       {
         name: "HAMMAD MISHAL",
         role: "MEDIA Lead",
-        image: "/placeholder.svg",
+        image: ham,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -216,7 +251,7 @@ const teamData = [
       {
         name: "SAMIKSHA",
         role: "MEDIA Co-Lead",
-        image: "/placeholder.svg",
+        image: sam,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -229,7 +264,7 @@ const teamData = [
       {
         name: "HARINANDANA",
         role: "CONTENT Lead",
-        image: "/placeholder.svg",
+        image: hari,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -237,7 +272,7 @@ const teamData = [
       {
         name: "DANIEL GEO",
         role: "CONTENT Co-Lead",
-        image: "/placeholder.svg",
+        image: dani,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -250,7 +285,7 @@ const teamData = [
       {
         name: "ABIN JACOB",
         role: "CULTURALS Lead",
-        image: "/placeholder.svg",
+        image: abin,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -258,7 +293,7 @@ const teamData = [
       {
         name: "JAICO",
         role: "CULTURALS Co-Lead",
-        image: "/placeholder.svg",
+        image: jaico,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -271,7 +306,7 @@ const teamData = [
       {
         name: "SINNY",
         role: "FOOD Lead",
-        image: "/placeholder.svg",
+        image: sinny,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -279,7 +314,7 @@ const teamData = [
       {
         name: "WILSON",
         role: "FOOD/TRANSPORTATION Lead",
-        image: "/placeholder.svg",
+        image: wils,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -292,7 +327,7 @@ const teamData = [
       {
         name: "RON BINOY",
         role: "MARKETING/HOSPITALITY Lead",
-        image: "/placeholder.svg",
+        image: ron,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -300,7 +335,7 @@ const teamData = [
       {
         name: "SREELEKSHMI P",
         role: "HOSPITALITY Lead",
-        image: "/placeholder.svg",
+        image: sree,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -308,7 +343,7 @@ const teamData = [
       {
         name: "DEVANANDA S",
         role: "HOSPITALITY Co-Lead",
-        image: "/placeholder.svg",
+        image: dev,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -316,7 +351,7 @@ const teamData = [
       {
         name: "DEVANANDA DEVAKUMAR",
         role: "MARKETING Co-Lead",
-        image: "/placeholder.svg",
+        image: devd,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -329,7 +364,7 @@ const teamData = [
       {
         name: "LEKSHMIPRIYA S",
         role: "DECORATION Lead",
-        image: "/placeholder.svg",
+        image: laksmi,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
@@ -337,7 +372,7 @@ const teamData = [
       {
         name: "KEERTHANA",
         role: "DECORATION Lead",
-        image: "/placeholder.svg",
+        image: kerr,
         social: { instagram: "#", linkedin: "#" },
         phone: "",
         email: "",
