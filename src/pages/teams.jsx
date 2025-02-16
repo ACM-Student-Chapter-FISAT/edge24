@@ -383,8 +383,8 @@ const teamData = [
 
 const TeamMember = ({ member }) => {
   return (
-    <div className="team-member border p-4 rounded-lg shadow-md text-center">
-      <div className="image-wrapper h-40 mb-3">
+    <div className="team-member border p-4 rounded-lg shadow-md text-center bg-white">
+      <div className="image-wrapper mx-auto w-full aspect-square mb-3">
         <img
           src={member.image}
           alt={member.name}
@@ -409,6 +409,7 @@ const TeamMember = ({ member }) => {
   );
 };
 
+
 const TeamSection = ({ section }) => {
   return (
     <div className="py-10">
@@ -424,10 +425,10 @@ const TeamSection = ({ section }) => {
 
 const Teams = () => {
   return (
-    <div className="p-6">
-      <header className="text-center py-8">
+    <div className="p-6 min-h-screen bg-gradient-to-br from-violet-500 to-pink-500">
+      <header className="text-center py-8 text-white">
         <h1 className="text-4xl font-bold">Our Team</h1>
-        <p className="text-gray-500 mt-2">Meet the people behind EDGE + 4.0 2025</p>
+        <p className="text-gray-200 mt-2">Meet the people behind EDGE + 4.0 2025</p>
       </header>
       {teamData.map((section, index) => (
         <TeamSection key={index} section={section} />
@@ -435,5 +436,6 @@ const Teams = () => {
     </div>
   );
 };
+
 
 export default Teams;
