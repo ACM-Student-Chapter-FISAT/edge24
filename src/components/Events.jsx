@@ -60,9 +60,9 @@ const CardAnimations = () => {
               className="w-full h-full object-cover rounded-t-lg -z-10"
             />
             <div className="p-4 bg-yellow-600 rounded-b-lg">
-              <p className="text-sm font-semibold text-white">Preevents </p>
-              <p className="text-xs text-white">Prize Pool: $1000</p>
-              <p className="text-xs text-white">Date: Nov 15, 2023</p>
+              <p className="text-sm font-semibold text-white">Hackathon</p>
+              <p className="text-xs text-white">Prize Pool: 15K</p>
+              <p className="text-xs text-white">Date: 28th Feb</p>
             </div>
           </li>
 
@@ -78,25 +78,7 @@ const CardAnimations = () => {
             />
             <div className="p-4 bg-yellow-600 rounded-b-lg">
               <p className="text-sm font-semibold text-white">Workshops</p>
-              <p className="text-xs text-white">Prize Pool: $1000</p>
-              <p className="text-xs text-white">Date: Nov 15, 2023</p>
-            </div>
-          </li>
-
-          {/* Card 3 */}
-          <li
-            onClick={() => navigate("/coding")}
-            className="relative w-64 h-full bg-white rounded-lg shadow-md flex-shrink-0 cursor-pointer transition-transform duration-300 hover:scale-105"
-          >
-            <img
-              src={images.proshow}
-              alt="Card 1"
-              className="w-full h-full object-cover rounded-t-lg -z-10"
-            />
-            <div className="p-4 bg-yellow-600 rounded-b-lg">
-              <p className="text-sm font-semibold text-white">Hackathon</p>
-              <p className="text-xs text-white">Prize Pool: $1000</p>
-              <p className="text-xs text-white">Date: Nov 15, 2023</p>
+              <p className="text-xs text-white">Date:28 Feb - 1 Mar</p>
             </div>
           </li>
         </ul>
